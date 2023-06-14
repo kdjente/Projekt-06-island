@@ -22,16 +22,92 @@ body {
 
 .titulek {
     font-family: 'Raleway', serif;
+    font-size: 56px;
 }
+
+.hlavicka {
+    background-image: url(images/island-hlavicka.jpg);
+    background-position: center center;
+	background-size: cover;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    padding: 100px;
+}
+
+.autor {
+    position: relative;
+    
+}
+
+.autor::before {
+    content: "";
+    display: block;
+    width: 150px;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    bottom: 100%;
+    left: 45%;
+}
+
+.obsah p, h2 {
+    padding: 0px 20px 0 20px;
+}
+
+h2 {
+    position: relative;
+    padding-bottom: 20px;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 150px;
+    height: 5px;
+    background-color: steelblue;
+    position: absolute;
+    top: 100%;
+    left: -50px;
+}
+
 
 
 /* MENU */
 
+.menu {
+    text-align: center;
+    text-transform: uppercase;
+    list-style: none;
+    padding: 20px;
+}
 
+.menu li {
+    padding: 15px;
+    border-bottom: 1px solid lightgrey;
+}
+
+.menu a {
+    text-decoration: none;
+    color: lightgrey;
+}
 
 
 /* OBSAH */
 
+img {
+    display: block;
+    width: 100%;
+}
+
+.popisek {
+    color: darkgrey;
+    text-align: center;
+}
+
+.popisek a {
+    color: darkgrey;
+}
 
 
 
@@ -41,3 +117,75 @@ body {
 
 
 /* PATICKA */
+
+.paticka {
+    padding-top: 50px;
+    color: darkgrey;
+    background: linear-gradient(lightgrey, white);
+}
+
+.paticka a {
+    color: darkgrey;
+}
+
+@media (min-width: 500px) {
+   .menu {
+        display: flex;
+   }
+   
+    .menu li {
+        width: 100%;
+        border: 1px solid lightgrey;
+   }
+
+    .obrazek{
+        position: relative;
+   }
+
+   .obrazek .popisek {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+   }
+    
+    .galerie {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .galerie .foto {
+        position: relative;
+        flex: 0 1 50%;
+        display: block;
+        overflow: hidden;
+        transition: transform 0.01s;
+    }
+
+       .galerie .popisek {
+        position: absolute;
+        background-color: grey;
+        width: 100%;
+        color: white;
+        text-align: center;
+        transition: transform 0.3s;
+    } 
+
+    .galerie .foto:hover .popisek {
+        transform: translateY(-130%);
+    }
+
+    .galerie .foto:hover img {
+        transform: scale(1.2);
+    }
+}
+
+@media (min-width: 1000px) {
+    .menu a {
+        display: block;
+        width: calc(100/4);
+   }
+
+   .galerie .foto {
+        flex: 1 1 33%;
+   }
+}
