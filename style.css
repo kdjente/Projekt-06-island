@@ -23,21 +23,18 @@ body {
 .titulek {
     font-family: 'Raleway', serif;
     font-size: 56px;
+    margin: 20px
 }
 
 .hlavicka {
     background-image: url(images/island-hlavicka.jpg);
     background-position: center center;
 	background-size: cover;
+
     color: white;
     text-align: center;
-    font-size: 20px;
-    padding: 100px;
-}
-
-.autor {
-    position: relative;
-    
+    font-size: 16px;
+    padding: 30px;
 }
 
 .autor::before {
@@ -46,29 +43,33 @@ body {
     width: 150px;
     height: 2px;
     background-color: white;
-    position: absolute;
-    bottom: 100%;
-    left: 45%;
+    margin: 25px auto;
 }
 
-.obsah p, h2 {
-    padding: 0px 20px 0 20px;
+.autor {
+    font-style: italic;
+    opacity: 0.8;
 }
 
-h2 {
+.obsah h2 {
+    padding: 20px;
     position: relative;
-    padding-bottom: 20px;
+}
+
+.obsah p {
+    padding: 10px 20px 10px 20px;
+    margin: 0;
 }
 
 h2::after {
     content: "";
     display: block;
-    width: 150px;
-    height: 5px;
+    width: 80px;
+    height: 3px;
     background-color: steelblue;
     position: absolute;
     top: 100%;
-    left: -50px;
+    left: 0px;
 }
 
 
@@ -100,9 +101,14 @@ img {
     width: 100%;
 }
 
+.obrazek {
+    margin: 20px 0;
+}
+
 .popisek {
     color: darkgrey;
     text-align: center;
+    font-size: 12px;
 }
 
 .popisek a {
@@ -113,15 +119,19 @@ img {
 
 /* FOTOGALERIE */
 
-
+.galerie {
+    margin: 20px 0;
+    padding: 20px 0;
+}
 
 
 /* PATICKA */
 
 .paticka {
-    padding-top: 50px;
+    padding: 20px;
     color: darkgrey;
     background: linear-gradient(lightgrey, white);
+    font-size: 12px;
 }
 
 .paticka a {
@@ -135,7 +145,7 @@ img {
    
     .menu li {
         width: 100%;
-        border: 1px solid lightgrey;
+        border: 0.5px solid lightgrey;
    }
 
     .obrazek{
@@ -145,12 +155,19 @@ img {
    .obrazek .popisek {
         position: absolute;
         right: 0;
-        bottom: 0;
+        bottom: 10px;
+        color: white;
+   }
+
+   .obrazek .popisek a {
+    color: white;
    }
     
     .galerie {
         display: flex;
         flex-wrap: wrap;
+        padding-bottom: 0;
+        margin-bottom: 0;
     }
 
     .galerie .foto {
@@ -158,7 +175,6 @@ img {
         flex: 0 1 50%;
         display: block;
         overflow: hidden;
-        transition: transform 0.01s;
     }
 
        .galerie .popisek {
@@ -171,21 +187,82 @@ img {
     } 
 
     .galerie .foto:hover .popisek {
-        transform: translateY(-130%);
+        transform: translateY(-100%);
     }
 
     .galerie .foto:hover img {
         transform: scale(1.2);
     }
+
+    .galerie .foto img {
+        transition: transform 0.3s;
+    }
 }
 
 @media (min-width: 1000px) {
-    .menu a {
-        display: block;
-        width: calc(100/4);
-   }
+    .hlavicka {
+        padding: 50px 300px 80px 300px;
+    }
 
+    .hlavicka .titulek {
+        font-size: 88px;
+    }
+    
+    .obsah {
+        width: 960px;
+        box-shadow: 1px 1px 20px 2px darkgrey;
+        display: block;
+        margin: -50px auto 0;
+        z-index: 1;
+        object-fit: contain;
+        background-color: white;
+        
+    }
+    
+    .obsah .uvod {
+        padding: 40px;
+    }
+
+    .pc {
+        display: flex;
+    }
+
+    .menu {
+        flex: 0 0 25%;
+        display: inline;
+        padding: 40px;
+    }
+
+    .menu li {
+        border: 0;
+        border-bottom: 0.5px solid lightgrey;
+        text-align: left;
+        font-size: 14px;
+        padding: 5px;
+        width: fit-content;
+    }
+
+    .proc h2, .proc p {
+        margin-right: 25%;
+       
+    }
+
+    .mustsee h2, .mustsee p {
+        margin-left: 25%;
+    }
+
+    .mustsee p, .proc p {
+        padding: 30px 30px 0 30px;
+    }
+          
    .galerie .foto {
         flex: 1 1 33%;
+   }
+
+   .paticka {
+        width: 960px;
+        margin: 0 auto;
+        background: none;
+        padding: 20px 0;
    }
 }
